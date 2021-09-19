@@ -7,4 +7,5 @@ var db = mysql.createConnection({
 });
 
 db.connect(); //접속
+
 module.exprots = db;
