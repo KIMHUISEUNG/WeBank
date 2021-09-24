@@ -1,11 +1,13 @@
-var http = require('http');
-var fs = require('fs');
-var url = require('url');
-var qs = require('querystring');
-var template = require('./public/javascripts/template');
-var db = require('./public/javascripts/db');
-var author = require('./public/javascripts/author');
-var mainRouter = require('./public/javascripts/topic');
+// var http = require('http');
+// var fs = require('fs');
+// var url = require('url');
+// var qs = require('querystring');
+// var template = require('./public/javascripts/template.js');
+// var db = require('./public/javascripts/db.js');
+// var author = require('./public/javascripts/author.js');
+// var mainRouter = require('./public/javascripts/topic.js');
+
+//-----------------------------------------------
 
 var createError = require('http-errors');
 var express = require('express');
@@ -17,6 +19,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testRouter = require('./routes/test');
 
+//express.use 는 app.use
 var app = express();
 
 // view engine setup
@@ -32,6 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', mainRouter);
+
+//test
 app.use('/test', testRouter);
 
 

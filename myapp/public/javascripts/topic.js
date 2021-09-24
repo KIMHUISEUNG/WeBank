@@ -1,8 +1,9 @@
 var url = require('url');
-var template = require('./template');
-var db = require('./db');
+var template = require('./template.js');
+// var db = require('./db.js');
 var qs = require('querystring');
 var sanitizeHtml = require('sanitize-html');
+var mysql = require('mysql');
 
 var express = require('express');
 var router = express.Router();
@@ -20,7 +21,17 @@ var router = express.Router();
 //         response.end(html);
 //       });
 // }
-router.get('/', function(req, res){
+
+var db = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '111111',
+  database : 'opentutorials'
+});
+
+db.connect(); //접속
+
+router.get('/', function(request, response){
   db.query(`SELECT * FROM topic`, function(error, topics) { //리스트 표출
       var title = 'Welcome';
       var description = 'Hello, Node.js';
@@ -29,9 +40,8 @@ router.get('/', function(req, res){
           `<h2>${title}</h2>${description}`,
           `<a href="/create">create</a>`
       );
-      response.writeHead(200);
-      response.end(html);
-    });
+      res.send(html);
+  });
 })
 
 // exports.page = function(request, response){
