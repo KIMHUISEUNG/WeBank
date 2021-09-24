@@ -1,14 +1,3 @@
-// var http = require('http');
-// var fs = require('fs');
-// var url = require('url');
-// var qs = require('querystring');
-// var template = require('./public/javascripts/template.js');
-// var db = require('./public/javascripts/db.js');
-// var author = require('./public/javascripts/author.js');
-// var mainRouter = require('./public/javascripts/topic.js');
-
-//-----------------------------------------------
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -20,6 +9,7 @@ var usersRouter = require('./routes/users');
 var testRouter = require('./routes/test');
 
 //express.use 는 app.use
+// Init App
 var app = express();
 
 // view engine setup
