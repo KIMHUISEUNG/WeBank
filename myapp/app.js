@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testRouter = require('./routes/test');
+var toon_informationRouter = require('./routes/Toon_information');
 
 //express.use 는 app.use
 // Init App
@@ -27,6 +28,7 @@ app.use('/users', usersRouter);
 app.use('/', indexRouter);
 
 //test
+app.use('/Toon_information', toon_informationRouter);
 app.use('/test', testRouter);
 
 
