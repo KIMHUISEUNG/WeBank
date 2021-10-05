@@ -11,12 +11,12 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'WeBank' });
 });
 
-app.get('/', (req, res) => {
-  fs.readFile('k_양말도깨비.png', function(error, data){
-    res.writeHead(200, {'Content-Type': 'text/html' });
-    res.end(data);
-  }
-});
+// app.get('/', (req, res) => {
+//   fs.readFile('k_양말도깨비.png', function(error, data){
+//     res.writeHead(200, {'Content-Type': 'text/html' });
+//     res.end(data);
+//   }
+// });
 
 module.exports = app;
 module.exports = router;
