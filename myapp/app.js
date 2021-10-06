@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var testRouter = require('./routes/test');
 var toon_informationRouter = require('./routes/toon_information');
 
+
 //express.use 는 app.use
 // Init App
 var app = express();
@@ -21,7 +22,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use("public", express.static(path.join(__dirname, 'public')));
 
 //app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -39,6 +40,7 @@ app.use('/test', testRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
+  //res.next();
 });
 
 // error handler
